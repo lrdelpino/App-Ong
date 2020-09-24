@@ -1,0 +1,76 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<main id="main" class="site-main">
+  <div class="page-title background-page">
+    <div class="container">
+      <h1>Say Hello!</h1>
+      <div class="breadcrumbs">
+        <ul>
+          <li><a href="index.html">Home</a><span>/</span></li>
+          <li>Contact Us</li>
+        </ul>
+      </div><!-- .breadcrumbs -->
+    </div>
+  </div><!-- .page-title -->
+  <div class="page-content contact-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 main-content">
+          <div class="entry-content">
+            <div class="row">
+              <div class="col-lg-8">
+                <div class="form-contact">
+                  <h2>Contáctenos</h2>
+                  <form action="{{ route('OrganizationsContactController.store') }}" method="POST" id="contactForm"
+                    class="clearfix">
+                    {{ csrfField() }}
+                    <div class="clearfix">
+                      <div class="field align-left">
+                        <input type="text" value="" name="name" placeholder="Tu nombre" />
+                      </div>
+                      <div class="field align-right">
+                        <input type="text" value="" name="email" placeholder="Tu Email" />
+                      </div>
+                    </div>
+                    <div class="field">
+                      <input type="text" value="" name="subject" placeholder="Asunto" />
+                    </div>
+                    <div class="field-textarea">
+                      <textarea rows="8" placeholder="Mensaje" name="message"></textarea>
+                    </div>
+                    <button type="submit" value="Enviar" class="btn-primary">Enviar</button>
+                  </form>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="contact-info">
+                  <h3>Información de Contacto</h3>
+                  <ul>
+                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>Riobamba 1579-1699</li>
+                    <li><i class="fa fa-phone" aria-hidden="true"></i>011 6535-3437</li>
+                    {{--  <li><i class="fa fa-mobile" aria-hidden="true"></i>(+1) 987.654.321</li>  --}}
+                    <li><i class="fa fa-envelope-o" aria-hidden="true"></i>manosdelacava@gmail.com</li>
+                  </ul>
+                  <div class="contact-desc">
+                    <p>En el barrio La Cava de la localidad de Béccar, provincia de Buenos Aires existe un lugar donde
+                      unos 40 voluntarios buscan transformar la realidad de cientos de niños, niñas y adolescentes del
+                      barrio.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- .container -->
+  </div><!-- .page-content -->
+  <!--  <div class="maps">
+    <div id="map"></div>
+  </div> .maps -->
+</main><!-- .site-main -->
+@endsection

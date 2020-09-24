@@ -1,0 +1,29 @@
+@layout('layouts.admin')
+
+@section('main')
+<section>
+  <div class="container">
+    <div class="main-content">
+      <div class="">
+        <h2>Preguntas Frecuentes</h2>
+        <br>
+        <form action="{{ route('Admin/FaqController.store') }}" method="POST" class="clearfix"
+          enctype="multipart/form-data">
+          {{ csrfField() }}
+          <div class="field">
+
+            <input type="textarea" value="" name="title" placeholder="Titulo de la pregunta"/>
+          </div>
+          <div class="field">
+            <textarea name="description" id="" cols="120" rows="10" placeholder="Desarrollo"></textarea>
+          </div>
+          <div class="inline clearfix">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/admin" type="submit" class="btn btn-danger">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

@@ -1,0 +1,18 @@
+@layout('layouts.main')
+
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<main id="main" class="site-main">
+  <div class="account-wrapper">
+    <div class="container">
+      <div class="row">
+        @include('users.list')
+      </div>
+    </div>
+  </div>
+</main>
+@endsection

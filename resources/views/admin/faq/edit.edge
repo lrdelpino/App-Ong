@@ -1,0 +1,25 @@
+@layout('layouts.admin')
+
+@section('main')
+<section>
+  <div class="container">
+    <div class="main-content">
+      <div class="">
+        <h2>Editar Perfil</h2>
+        <form action="/admin/faqs/{{faq.id}}?_method=PATCH" method="POST" class="clearfix">
+          <div class="field">
+            <input type="text" value="{{faq.title}}" name="title" />
+          </div>
+          <div class="field">
+            <textarea name="description" value="{{faq.description}}" cols="130" rows="10">{{faq.description}}</textarea>
+          </div>
+          <div class="inline clearfix">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/admin" type="submit" class="btn btn-danger">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

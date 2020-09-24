@@ -1,0 +1,32 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<section>
+  <div class="container">
+    <div class="main-content">
+      <div class="">
+        <h2>Editar Perfil</h2>
+        <form action="/admin/users/{{user.id}}?_method=PATCH" method="POST" class="clearfix">
+          <div class="field">
+            <input type="text" value="{{user.first_name}}" name="first_name" placeholder="Nombre" />
+          </div>
+          <div class="field">
+            <input type="text" value="{{user.last_name}}" name="last_name" placeholder="Apellido" />
+          </div>
+          <div class="field">
+            <input type="text" value="{{user.username}}" name="username" placeholder="Usuario" />
+          </div>
+          <div class="inline clearfix">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/admin/users" type="submit" class="btn btn-danger">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

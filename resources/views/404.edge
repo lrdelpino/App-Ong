@@ -1,0 +1,18 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<div class="container">
+  <div class="main-content main-404">
+    <img src="images/404.png" alt="">
+    <h2>No encontrado...</h2>
+    <div class="button">
+      <a href="/" class="btn-secondary">Volver al inicio</a>
+      <a href="/campaigns" class="btn-primary">Explorar campa&ntilde;as</a>
+    </div>
+  </div>
+</div><!-- .container -->
+@endsection

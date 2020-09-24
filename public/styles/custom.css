@@ -1,0 +1,12 @@
+.page-title {
+  margin-bottom: 40px;
+}
+
+.page-title.background-page {
+  background-image: url("../images/demo/manosCavaBanner.png");
+}
+
+#respond button,
+.btn-primary {
+  background-color: #9b28b7;
+}

@@ -1,0 +1,130 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+
+<div class="campaigns-action clearfix">
+  <div class="container">
+    <div class="sort">
+      <span>Sort by:</span>
+      <ul>
+        <li class="active"><a href="#">Recent Project</a></li>
+        <li><a href="#">Most Project</a></li>
+      </ul>
+    </div><!-- .sort -->
+    <div class="filter">
+      <span>Filter by:</span>
+      <form action="#">
+        <div class="field-select">
+          <select name="s">
+            <option value="">All Stages</option>
+            <option value="">Pending</option>
+            <option value="">Cancel</option>
+            <option value="">Completed</option>
+          </select>
+        </div>
+        <div class="field-select">
+          <select name="s">
+            <option value="">All Category</option>
+            <option value="">Design & Art</option>
+            <option value="">Book</option>
+            <option value="">Perfomances</option>
+            <option value="">Technology</option>
+          </select>
+        </div>
+      </form>
+    </div><!-- .filter -->
+  </div>
+</div><!-- .campaigns-action -->
+<div class="campaigns">
+  <div class="container">
+    <div class="campaign-content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="campaign-big-item clearfix">
+            <a href="campaign_detail.html" class="campaign-big-image"><img src="images/placeholder/570x350.png" alt=""></a>
+            <div class="campaign-big-box">
+              <a href="#" class="category">{{ campaign.organization.name }}</a>
+            <h3><a href="campaign_detail.html">{{ campaign.title }}</a></h3>
+            <div class="campaign-description">{{ campaign.description }}</div>
+              <div class="staff-picks-author">
+                <div class="author-profile">
+                  <a class="author-avatar" href="#"><img src="{{campaign.image_url}}" alt=""></a>by <a class="author-name" href="#">Andrew Noah</a>
+                </div>
+                <div class="author-address"><span class="ion-location"></span>Melbourne, Victoria, AU</div>
+              </div>
+              <div class="process">
+                <div class="raised"><span></span></div>
+                <div class="process-info">
+                  <div class="process-pledged"><span>$10000</span>pledged</div>
+                  <div class="process-funded"><span>81%</span>funded</div>
+                  <div class="process-time"><span>37</span>backers</div>
+                  <div class="process-time"><span>23</span>days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @each(campaign in campaigns)
+        <div class="col-lg-4 col-sm-6 col-6">
+          <div class="campaign-item">
+            <div class="campaign-box">
+              <a href="#" class="category">{{ campaign.organization.name }}</a>
+            <h3><a href="campaign_detail.html">{{ campaign.title }}</a></h3>
+            <div class="campaign-description">{{ campaign.description }}</div>
+            <div class="campaign-author"><a class="author-icon" href="#"><img src="{{campaign.image_url}}" alt=""></a>by <a class="author-name" href="#">Sabato Alterio</a></div>
+              <div class="process">
+                <div class="raised"><span></span></div>
+                <div class="process-info">
+                  <div class="process-pledged"><span>$630</span>pledged</div>
+                  <div class="process-funded"><span>26%</span>funded</div>
+                  <div class="process-time"><span>2</span>days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endeach
+      </div>
+    </div>
+    <div class="latest-button"><a href="#" class="btn-primary">Load more</a></div>
+  </div>
+</div><!-- .latest -->
+  <div class="container">
+    <div class="campaign-content">
+      <div class="row">
+        <div class="col-lg-12">
+          @each(campaign in organizationsCampaigns.data)
+          <div class="col-lg-4 col-sm-6 col-6">
+            <div class="campaign-item">
+              <a class="overlay" href="campaign_detail.html">
+              <img src="{{ campaign.image }}" alt="">
+                <span class="ion-ios-search-strong"></span>
+              </a>
+              <div class="campaign-box">
+              <a href="#" class="category">{{ campaign.name }}</a>
+              <h3><a href="campaign_detail.html">{{ campaign.title }}</a></h3>
+              <div class="campaign-description">{{ campaign.description }}</div>
+                <div class="campaign-author"><a class="author-icon" href="#"><img src="images/placeholder/35x35.png"
+                      alt=""></a>by <a class="author-name" href="#">Sabato Alterio</a></div>
+                <div class="process">
+                  <div class="raised"><span></span></div>
+                  <div class="process-info">
+                    <div class="process-pledged"><span>$630</span>pledged</div>
+                    <div class="process-funded"><span>26%</span>funded</div>
+                    <div class="process-time"><span>2</span>days ago</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endeach
+        </div>
+      </div>
+      <div class="latest-button"><a href="#" class="btn-primary">Load more</a></div>
+    </div>
+  </div><!-- .latest -->
+  @endsection

@@ -1,0 +1,34 @@
+@layout('layouts.admin')
+
+@section('main')
+<section>
+  <div class="container">
+    <div class="main-content">
+      <div class="">
+        <h2>Notas</h2>
+        <br>
+      <form action="{{route('Admin/NoteController.store')}}" method="POST" class="clearfix"
+          enctype="multipart/form-data">
+          {{ csrfField() }}
+          <div class="field">
+            <input type="text" value="" name="title" placeholder="Titulo" />
+          </div>
+          <div class="field">
+            <textarea name="description" id="" cols="130" rows="10" laceholder="Desarrollo"></textarea>
+          </div>
+          <div class="field">
+            <input type="text" value="" name="frase" placeholder="Frase" />
+          </div>
+          <div class="field">
+            <input type="file" name="profile_pics[]" multiple />
+          </div>
+          <div class="inline clearfix">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/admin/notes" type="submit" class="btn btn-danger">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

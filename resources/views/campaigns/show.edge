@@ -1,0 +1,279 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('side')
+@include('partials.side')
+@endsection
+
+@section('main')
+<div class="campaign-content">
+  <div class="container">
+    <div class="campaign">
+      <div class="campaign-item clearfix">
+        <div class="campaign-image">
+          <div id="owl-campaign" class="campaign-slider">
+            <div class="item"><img src="/demos/slider-1.jpg" alt=""></div>
+            <div class="item"><img src="/demos/slider-2.jpg" alt=""></div>
+            <div class="item"><img src="/demos/slider-3.jpg" alt=""></div>
+          </div>
+        </div>
+
+
+        <div class="campaign-box">
+          {{--  <a href="#" class="category">Crafts</a>  --}}
+          <h3>{{ campaign.title }}</h3>
+          <div class="campaign-description">
+            <p>{{ campaign.description }}</p>
+          </div>
+          <div class="campaign-author clearfix">
+            <div class="author-profile">
+              <a class="author-icon" href="#">
+                <img src="images/placeholder/35x35.png" alt="">
+              </a>Organiza
+              <a class="author-name" href="{{ route('OrganizationController.show', {id: 1 }) }}">
+                {{ 'Manos de la cava' }}
+              </a>
+            </div>
+            <div class="author-address">
+              <span class="ion-location"></span>San Isidro, Buenos Aires, Argentina
+            </div>
+          </div>
+          <div class="process">
+            <div class="raised"><span style="width: 262px;"></span></div>
+            <div class="process-info">
+              <div class="process-funded"><span>$10000</span>Objetivo total</div>
+              <div class="process-pledged"><span>$8100</span>Alcanzado</div>
+              <div class="process-time"><span>37</span>Donantes</div>
+              <div class="process-time"><span>23</span>Dias restantes</div>
+            </div>
+          </div>
+          <div class="button">
+            <form action="#" id="priceForm" class="campaign-price quantity">
+              <input type="number" value="1" min="0" name="s" placeholder="">
+              <button class="btn-primary" type="submit">Donar</button>
+            </form>
+            <a href="#" class="btn-secondary"><i class="fa fa-heart" aria-hidden="true"></i>Recordarme</a>
+          </div>
+          <div class="share">
+            <p>Compartir en redes sociales</p>
+            <ul>
+              <li class="share-facebook"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li class="share-twitter"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+              <li class="share-google-plus"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+              <li class="share-linkedin"><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+              <li class="share-code"><a href="#"><i class="fa fa-code" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- .campaign-content -->
+
+<div class="campaign-history">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="campaign-tabs">
+          <ul class="tabs-controls">
+            <li class="active" data-tab="campaign"><a href="#">Historia</a></li>
+            <li data-tab="backer"><a href="#">Donantes</a></li>
+            <li data-tab="faq"><a href="#">FAQ</a></li>
+            <li data-tab="updates"><a href="#">Novedades</a></li>
+            <li data-tab="comment"><a href="#">Comentarios</a></li>
+          </ul>
+          <div class="campaign-content">
+            <div id="campaign" class="tabs active">
+              <p>Hoy les vamos a contar de una familia que acompañamos. Ellos son 9 hermanos que viven todos con su
+                madre. Actualmente la madre y responsable de la familia se encuentra internada con graves problemas de
+                salud.</p>
+              <p>
+                Dos de sus hijos varones poseen esta terrible enfermedad que se va agravando día a día a parte de estar
+                viviendo en la extrema pobreza. Su hermana, adolescente es quien se está haciendo cargo en este momento
+                de todo.
+              </p>
+              <p>
+                Nosotros estamos acompañándolos en lo que podemos y lamentamos tener que dar este mensaje tan crudo pero
+                por lo costoso de la enfermedad y los insumos que necesita no alcanzamos a acompañarlos como
+                corresponde.
+              </p>
+              <p>
+                Estamos buscando una o varias familias que se unan y apadrinen a esta familia que la está pasando mal y
+                necesita ayuda.
+              </p>
+              <p>Si querés sumarte hablanos por mensaje privado, ellos te lo van a agradecer!.</p>
+
+              <img src="images/placeholder/770x430.png" alt="">
+            </div>
+            <div id="backer" class="tabs">
+              <table>
+                <tbody>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Monto</th>
+                    <th>Fecha</th>
+                  </tr>
+                  <tr>
+                    <td>Andrew</td>
+                    <td>$100</td>
+                    <td>25-06-2017</td>
+                  </tr>
+                  <tr>
+                    <td>Andrew</td>
+                    <td>$60</td>
+                    <td>25-12-2017</td>
+                  </tr>
+                  <tr>
+                    <td>Andrew</td>
+                    <td>$70</td>
+                    <td>25-11-2017</td>
+                  </tr>
+                  <tr>
+                    <td>Andrew</td>
+                    <td>$90</td>
+                    <td>25-11-2017</td>
+                  </tr>
+                  <tr>
+                    <td>Andrew</td>
+                    <td>$30</td>
+                    <td>25-01-2017</td>
+                  </tr>
+                  <tr>
+                    <td>Andrew</td>
+                    <td>$80</td>
+                    <td>25-06-2017</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div id="faq" class="tabs">
+              <h2>Preguntas Frecuentes</h2>
+              <p>Todavia no se ha publicado ninguna pregunta frecuente. Puedes hacer una pregunta directamente a los
+                organizadores.</p>
+              <a href="#" class="btn-primary">Enviar una pregunta</a>
+            </div>
+            <div id="updates" class="tabs">
+              <ul>
+                <li>
+                  <p class="date">30-08-2020</p>
+                  <h3>Lanzamiento de la campaña</h3>
+                  <div class="desc">
+                    <p>Bacon spare ribs rump chuck turkey, ham hock capicola. Strip steak tongue kielbasa, boudin
+                      hamburger t-bone capicola turducken. Landjaeger meatloaf pork belly spare ribs chuck.</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="date">31-08-2020</p>
+                  <h3>Se sumaron 3 voluntarios</h3>
+                  <div class="desc">
+                    <p>Corned beef leberkas fatback porchetta, strip steak salami turkey short loin flank ham hock
+                      landjaeger. Leberkas pork belly kevin shoulder filet mignon. Bacon spare ribs rump chuck turkey,
+                      ham hock capicola. Strip steak tongue kielbasa, boudin hamburger t-bone capicola turducken.
+                      Landjaeger meatloaf pork belly spare ribs chuck.</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="date">01-09-2020</p>
+                  <h3>Ampliamos el objetivo</h3>
+                  <div class="desc">
+                    <p>Corned beef leberkas fatback porchetta, strip steak salami turkey short loin flank ham hock
+                      landjaeger. Leberkas pork belly kevin shoulder filet mignon. Bacon spare ribs rump chuck turkey,
+                      ham hock capicola. Strip steak tongue kielbasa, boudin hamburger t-bone capicola turducken.
+                      Landjaeger meatloaf pork belly spare ribs chuck.</p>
+                  </div>
+                </li>
+                <li>
+                  <p class="date">02-09-2020</p>
+                  <h3>Alcanzamos el 50% del objetivo</h3>
+                  <div class="desc">
+                    <p>Sed cursus hendrerit odio, at aliquet leo hendrerit a. Nulla ultricies sagittis dolor, quis
+                      maximus magna consectetur eu. Cras pharetra aliquam fringilla. Integer placerat sapien dapibus
+                      varius luctus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in aliquam
+                      urna, ultrices lobortis lacus. Praesent mi enim, congue semper volutpat ut, bibendum tempor arcu.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div id="comment" class="tabs comment-area">
+              <h3 class="comments-title">1 comentario</h3>
+              <ol class="comments-list">
+                <li class="comment clearfix">
+                  <div class="comment-body">
+                    <div class="comment-avatar rounded-circle"><img src="/demos/avatar.png" alt=""></div>
+                    <div class="comment-info">
+                      <header class="comment-meta"></header>
+                      <cite class="comment-author">Jordan B. Goodale</cite>
+                      <div class="comment-inline">
+                        <span class="comment-date">Hace 2 dias</span>
+                        <a href="#" class="comment-reply">Responder</a>
+                      </div>
+                      <div class="comment-content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Equidem e Cn. Sequitur disserendi
+                          ratio cognitioque naturae; Nunc vides, quid faciat. Duo Reges: constructio interrete. Memini
+                          vero, inquam; Quis Aristidem non mortuum diligit?</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ol>
+              <div id="respond" class="comment-respond">
+                <h3 id="reply-title" class="comment-reply-title">Publicar un comentario</h3>
+                <form action="#" id="commentForm">
+                  <div class="field-textarea">
+                    <textarea rows="8" placeholder="Comentario" name="message"></textarea>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 field">
+                      <input type="text" name="name" placeholder="Nombre">
+                    </div>
+                    <div class="col-md-6 field">
+                      <input type="text" name="email" placeholder="Email">
+                    </div>
+                  </div>
+                  <button type="submit" value="Send Messager" class="btn-primary">Publicar</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- .main-content -->
+
+      <div class="col-lg-4">
+        <div class="support support-campaign">
+          <h3 class="support-campaign-title">Ayudar</h3>
+          <div class="plan">
+            <a href="javascript:void(0)">
+              <h4>Donar $100 - $200</h4>
+              {{--  <div class="plan-desc">  --}}
+              {{--  <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was  --}}
+              {{--  born and I will give you a complete account of the system, and expound the actual teachings of the  --}}
+              {{--  great explorer of the truth, the master builder of human happiness.</p>  --}}
+              {{--  </div>  --}}
+              {{--  <div class="plan-date">May, 2017</div>  --}}
+              {{--  <div class="plan-author">Estimated Delivery</div>  --}}
+              {{--  <div class="backer">2 backer</div>  --}}
+            </a>
+          </div>
+          <div class="plan">
+            <a href="javascript:void(0)">
+              <h4>Donar $200 - $300</h4>
+              {{--  <div class="plan-desc">  --}}
+              {{--  <p>No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do  --}}
+              {{--  not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor  --}}
+              {{--  again is there anyone who loves or pursues or desires to obtain pain of itself</p>  --}}
+              {{--  </div>  --}}
+              {{--  <div class="plan-date">May, 2017</div>  --}}
+              {{--  <div class="plan-author">Estimated Delivery</div>  --}}
+              {{--  <div class="backer">35 backer</div>  --}}
+            </a>
+          </div>
+        </div>
+      </div><!-- .sidebar -->
+    </div>
+  </div>
+</div><!-- .campaign-history -->
+@endsection

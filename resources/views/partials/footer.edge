@@ -1,0 +1,103 @@
+<footer id="footer" class="site-footer">
+  <div class="footer-menu">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-sm-4 col-4">
+          <div class="footer-menu-item">
+            <h3>CMS</h3>
+            <ul>
+              <li><a href="#alkemy-ong">Que es Alkemy ONG ?</a></li>
+              <li><a href="#nosotors">Nosotros</a></li>
+              <li><a href="#como-funciona">Como funciona ?</a></li>
+              <li><a href="#team">Equipo</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-4 col-4">
+          <div class="footer-menu-item">
+            <h3>Campañas</h3>
+            <ul>
+              <li><a href="/users/register">Registra tu ONG</a></li>
+              <li><a href="/faqs">Doná</a></li>
+              <li><a href="/faqs">Ayuda</a></li>
+              <li><a href="#terms">Terminos y condiciones</a></li>
+              <li><a href="#privacy">Privacidad</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-4 col-4">
+          <div class="footer-menu-item">
+            <h3>Explorar</h3>
+            <ul>
+              <li><a href="/organizations">Organizaciones</a></li>
+              <li><a href="/campaigns">Campañas</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-12 col-12">
+          <div class="footer-menu-item newsletter">
+            <h3>Newsletter</h3>
+            <div class="newsletter-description">Suscribite para recibir novedades</div>
+            <form action="s" method="POST" id="newsletterForm">
+              <input type="text" value="" name="s" placeholder="Ingresa tu email" />
+              <button type="submit" value=""><span class="ion-android-drafts"></span></button>
+            </form>
+            <div class="follow">
+              <h3>Seguinos</h3>
+              <ul>
+                <li class="facebook"><a target="_Blank" href="http://www.facebook.com"><i class="fa fa-facebook"
+                      aria-hidden="true"></i></a></li>
+                <li class="twitter"><a target="_Blank" href="http://www.twitter.com"><i class="fa fa-twitter"
+                      aria-hidden="true"></i></a></li>
+                <li class="instagram"><a target="_Blank" href="http://www.instagram.com"><i class="fa fa-instagram"
+                      aria-hidden="true"></i></a></li>
+                <li class="google"><a target="_Blank" href="http://www.google.com"><i class="fa fa-google-plus"
+                      aria-hidden="true"></i></a></li>
+                <li class="youtube"><a target="_Blank" href="http://www.youtube.com"><i class="fa fa-youtube"
+                      aria-hidden="true"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-top">
+        <p class="payment-img"><img src="/images/assets/payment-methods.png" alt=""></p>
+        <div class="footer-top-right">
+        </div>
+      </div>
+    </div>
+  </div><!-- .footer-menu -->
+  <div class="footer-copyright">
+    <div class="container">
+      <p class="copyright">.</p>
+      <a href="#" class="back-top">Subir<span class="ion-android-arrow-up"></span></a>
+    </div>
+  </div>
+</footer><!-- site-footer -->
+
+<script src="/js/jquery-1.12.4.min.js"></script>
+<script src="/libs/popper/popper.js"></script>
+<script src="/libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="/libs/owl-carousel/owl.carousel.min.js"></script>
+<script src="/libs/owl-carousel/carousel.min.js"></script>
+<script src="/libs/jquery.countdown/jquery.countdown.min.js"></script>
+<script src="/libs/wow/wow.min.js"></script>
+<script src="/libs/isotope/isotope.pkgd.min.js"></script>
+<script src="/libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="/libs/magicsuggest/magicsuggest-min.js"></script>
+<script src="/libs/quilljs/js/quill.core.js"></script>
+<script src="/libs/quilljs/js/quill.js"></script>
+<!-- orther script -->
+<script src="/js/main.js"></script>
+<script>
+  function validate(evt) {
+  var theEvent = evt || window.event;
+  var key = theEvent.keyCode || theEvent.which;
+  key = String.fromCharCode( key );
+  var regex = /[0-9]|\./;
+  if( !regex.test(key) ) {
+    theEvent.returnValue = false;
+    if(theEvent.preventDefault) theEvent.preventDefault();
+  }
+}
+</script>

@@ -1,0 +1,136 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<div id="wrapper">
+
+  <main id="main" class="site-main">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 main-content">
+          <article class="post">
+            <div class="entry-content">
+              <a class="overlay" href="{{route('Admin/NoteController.show',{id:note.id})}}">
+                <img src="../../../demos/notes1.jpg" alt="">
+                <span class="ion-ios-search-strong"></span>
+              <ul class="post-meta">
+                <li><i class="fa fa-calendar-check-o" aria-hidden="true"></i><a href="#">{{note.created_at}}</a></li>
+              <li><i class="fa fa-user-o" aria-hidden="true"></i><span>by</span><a >{{user.first_name}} {{user.last_name}}</a></li>
+                <li><i class="fa fa-folder-o" aria-hidden="true"></i><a href="#">Social Media Marketing</a></li>
+              </ul>
+            <p>{{note.description}}</p>
+              <p>Cur iustitia laudatur? Restatis igitur vos; Quae cum essent dicta, discessimus. Respondeat totidem
+                verbis. Quis istum dolorem timet? Memini vero, inquam:</p>
+              <ul class="list">
+                <li>Ut placet, inquit, etsi enim illud erat aptius, aequum cuique concedere.</li>
+                <li>Ut in geometria, prima si dederis, danda sunt omnia.</li>
+                <li>Quid in isto egregio tuo officio et tanta fide-sic enim existimo-ad corpus refers?</li>
+              </ul>
+              <p>Quid ad utilitatem tantae pecuniae? Quae sequuntur igitur? Tria genera bonorum; Quis hoc dicit? Quonam,
+                inquit, modo? It is a long established fact that a reader will be distracted by the readable content of
+                a page when looking at its layout.</p>
+              <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed
+                to using 'Content here, content here', making it look like readable English. Many desktop publishing
+                packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem
+                ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years,
+                sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+              <div class="quote">
+              <p>{{note.frase}}</p>
+              </div>
+              <p>Idem adhuc; Audeo dicere, inquit. Quaerimus enim finem bonorum. Cur id non ita fit? Si quae
+                forte-possumus. Illi enim inter se dissentiunt. Equidem e Cn. Nunc agendum est subtilius.</p>
+            </div>
+            <footer class="entry-footer">
+              <div class="tags-links">
+                <span>Tags:</span>
+                <a href="#">#ONG</a>
+                <a href="#">#ManosSolidarias</a>
+              </div>
+              <div class="author-info clearfix">
+                <a href="#"><img src="images/placeholder/70x70.png" alt=""></a>
+                <div class="author-bio">
+                  <h3><a href="#">Andrew Noah</a></h3>
+                  <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida
+                    pellentesque urna varius vitae.</div>
+                </div>
+              </div>
+            </footer>
+          </article>
+          <div id="comment" class="comment-area">
+            <h3 class="comments-title">1 Comment</h3>
+            <ol class="comments-list">
+              <li class="comment clearfix">
+                <div class="comment-body">
+                  <div class="comment-avatar"><img src="images/placeholder/70x70.png" alt=""></div>
+                  <div class="comment-info">
+                    <header class="comment-meta"></header>
+                    <cite class="comment-author">Jordan B. Goodale</cite>
+                    <div class="comment-inline">
+                      <span class="comment-date">2 days ago</span>
+                      <a href="#" class="comment-reply">Reply</a>
+                    </div>
+                    <div class="comment-content">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Equidem e Cn. Sequitur disserendi
+                        ratio cognitioque naturae; Nunc vides, quid faciat. Duo Reges: constructio interrete. Memini
+                        vero, inquam; Quis Aristidem non mortuum diligit?</p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ol>
+            <div id="respond" class="comment-respond">
+              <h3 id="reply-title" class="comment-reply-title">Leave A Comment?</h3>
+              <form action="#" id="commentForm">
+                <div class="field-textarea">
+                  <textarea rows="8" placeholder="Your Comment"></textarea>
+                </div>
+                <div class="row">
+                  <div class="col-md-4 field">
+                    <input type="text" value="" name="s" placeholder="Your Name" />
+                  </div>
+                  <div class="col-md-4 field">
+                    <input type="text" value="" name="s" placeholder="Your Email" />
+                  </div>
+                  <div class="col-md-4 field">
+                    <input type="text" value="" name="s" placeholder="Website" />
+                  </div>
+                </div>
+                <button type="submit" value="Send Messager" class="btn-primary">Post Comment</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 sidebar">
+
+          <aside class="widget widget-popular">
+            <h3 class="widget-title">Popular Posts</h3>
+            <ul>
+              @each(note in notes)
+              <li>
+              <a href="{{route('Admin/NoteController.show',{id:note.id})}}"><img src="images/placeholder/60x60.png" alt=""></a>
+              <h4><a href="{{route('Admin/NoteController.show',{id:note.id})}}">{{note.title}}</a></h4>
+              </li>
+              @endeach
+            </ul>
+          </aside><!-- .widget-search -->
+          <aside class="widget widget-recent">
+            <h3 class="widget-title">Recientes Posts</h3>
+            <ul>
+              <li><a href="#">Ecommerce Product Liability 101: Protecting Yourself & Your Business</a></li>
+              <li><a href="#">10 Ways to Combine Artistic and Scientific Thinking</a></li>
+              <li><a href="#">How to Rule Social Media Armed with Only Your iPhone</a></li>
+              <li><a href="#">10 Beautiful Typography Trends to Try in 2016</a></li>
+              <li><a href="#">16 Productivity Tips Every Designer Needs to Know</a></li>
+            </ul>
+          </aside><!-- .widget-search -->
+        </div>
+      </div>
+    </div><!-- .container -->
+  </main><!-- .site-main -->
+</div><!-- #wrapper -->
+@endsection

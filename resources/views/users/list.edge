@@ -1,0 +1,99 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+
+<div class="account-content backed-campaigns account-table">
+  <h3 class="account-title">Usuarios</h3>
+  <div class="account-main">
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+          <th>Fecha de Registro</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input class="form-control" type="text" name="email" autocomplete="off">
+          </td>
+          <td>
+            <input class="form-control" type="text" name="first_name" autocomplete="off">
+          </td>
+          <td>
+            <input class="form-control" type="text" name="last_name" autocomplete="off">
+          </td>
+          <td colspan="3">
+            <input class="form-control" type="text" name="q" autocomplete="off">
+          </td>
+        </tr>
+
+        @each(user in users.data)
+        <tr>
+          <td>{{ user.first_name }}</td>
+          <td>{{ user.last_name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <i class="fa fa-{{ user.provider }}"></i>&nbsp;&nbsp;
+            {{ user.created_at }}
+          </td>
+          <td>
+            <form class="d-inline-block" action="/admin/users/{{user.id}}">
+              <button class="btn text-info btn-sm">
+                <i class="fa fa-id-card"></i>
+              </button>
+            </form>
+
+            <form class="d-inline-block" action="/admin/users/{{user.id}}/edit">
+              <button class="btn text-primary btn-sm">
+                <i class="fa fa-pencil"></i>
+              </button>
+            </form>
+
+            <form class="d-inline-block" method="POST" action="/admin/users/{{user.id}}?_method=delete">
+              {{ csrfField() }}
+              <input type="hidden" name="method" value="DELETE">
+              <button type="submit" class="btn text-danger btn-sm">
+                <i class="fa fa-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        @endeach
+      </tbody>
+    </table>
+
+    <nav aria-label="navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="{{ request.url() }}" tabindex="-1">
+            Inicio
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{{ users.page == 1 ? '#' : '?page=' + (users.page - 1) }}" tabindex="-1">
+            Anterior
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{{ users.lastPage == users.page ? '#' : '?page=' + (users.page + 1) }}">
+            Siguiente
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{{ request.url() + '?page=' + users.lastPage }}" tabindex="-1">
+            Fin
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+@endsection

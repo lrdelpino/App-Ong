@@ -1,0 +1,30 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<div class="container">
+  <div class="main-content">
+    <div class="form-login">
+      <h2>Ingresa con tu cuenta</h2>
+      <form action="{{ route('UsersController.login') }}" method="POST" id="loginForm" class="clearfix">
+        {{ csrfField() }}
+        <div class="field">
+          <input type="email" name="email" placeholder="E-mail Address" />
+          {{ elIf('<p class="text-danger">$self</p>', getErrorFor('email'), hasErrorFor('email')) }}
+        </div>
+        <div class="field">
+          <input type="password" name="password" placeholder="Password" />
+          {{ elIf('<p class="text-danger">$self</p>', getErrorFor('password'), hasErrorFor('password')) }}
+        </div>
+        <div class="inline clearfix">
+          <button type="submit" class="btn-primary">Login</button>
+          <p>No tienes una cuenta ? <a href="/users/register">Registrate aqui</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+@endsection

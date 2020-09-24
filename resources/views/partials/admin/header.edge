@@ -1,0 +1,67 @@
+<header id="header" class="site-header">
+  <div class="container">
+    <div class="site-brand">
+      <a href="/"><img src="/images/manosLogo.png" alt=""></a>
+    </div><!-- .site-brand -->
+    <div class="right-header">
+      <nav class="main-menu">
+        <button class="c-hamburger c-hamburger--htx"><span></span></button>
+        <ul>
+          <li>
+            <a href="{{route('Admin/HomeController.index')}}">Inicio<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+
+          </li>
+          <li>
+            <a href="{{route('Admin/CampaignsController.index')}}">Campañas<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+            <ul class="sub-menu">
+              <li><a href="/">Explore Layout One</a></li>
+              <li><a href="/">Explore Layout Two</a></li>
+              <li><a href="/">Explore Layout Three</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="{{route('Admin/CampaignsController.create')}}">Comenzar Campaña<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+            <ul class="sub-menu">
+              <li><a href="/campaigns/create">Create a campaign</a></li>
+              <li><a href="/">Update a campaign</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="{{route('Admin/HomeController.index')}}">Preguntas Frecuentes<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+
+            <ul class="sub-menu">
+              <li><a href="{{route('Admin/FaqController.index')}}">Preguntas Frecuentes</a></li>
+              <li><a href="{{route('Admin/FaqController.create')}}">Nueva</a></li>
+
+            </ul>
+          </li>
+          <li>
+            <a href="{{route('Admin/NoteController.index')}}">Notas<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+            <ul class="sub-menu">
+              <li><a href="{{route('Admin/NoteController.index')}}">Notas</a></li>
+              <li><a href="{{route('Admin/NoteController.create')}}">Nueva</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav><!-- .main-menu -->
+      <div class="search-icon">
+        <a href="#" class="ion-ios-search-strong"></a>
+        <div class="form-search"></div>
+        <form action="#" method="POST" id="searchForm">
+          <input type="text" value="" name="search" placeholder="Search..." />
+          <button type="submit" value=""><span class="ion-ios-search-strong"></span></button>
+        </form>
+      </div>
+
+      <div class="login login-button">
+        <a href="{{route('Admin/UsersController.logout')}}" class="btn-primary">Salir</a>
+      </div><!-- .login -->
+    </div>
+    <!--. right-header -->
+  </div><!-- .container -->
+</header><!-- .site-header -->

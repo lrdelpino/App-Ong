@@ -1,0 +1,37 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('side')
+@include('partials.side')
+@endsection
+
+@section('main')
+<section>
+  <div class="container">
+    <div class="main-content">
+      <div class="">
+        <h2>Editar Campaña</h2>
+        <form action="/admin/campaigns/{{campaign.id}}?_method=PATCH" method="POST" class="clearfix">
+          {{ csrfField() }}
+          <div class="field">
+            <input type="text" value="{{campaign.title}}" name="title" placeholder="Nombre de la campaña" />
+          </div>
+          <div class="field">
+            <input type="text" value="{{campaign.description}}" name="description" placeholder="Descripcion" />
+          </div>
+          <div class="field">
+            <input type="date" value="{{campaign.expires_at}}" name="expires_at" placeholder="Fecha de expiracion" />
+          </div>
+          <div class="inline clearfix">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/admin/campaigns" type="submit" class="btn btn-danger">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

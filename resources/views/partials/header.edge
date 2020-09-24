@@ -1,0 +1,99 @@
+@if(organization)
+<header id="header" class="site-header">
+  <div class="container">
+    <div class="site-brand">
+      <a href="/"><img src="/images/manosLogo.png" alt=""></a>
+    </div><!-- .site-brand -->
+    <div class="right-header">
+      <nav class="main-menu">
+        <button class="c-hamburger c-hamburger--htx"><span></span></button>
+        <ul>
+          <li>
+            <a href="{{ route('HomeController.index')}}">Inicio<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="/organizations/{{organization.id}}/campaigns">Campañas<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="/organizations/{{organization.id}}/faqs">Preguntas Frecuentes<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="{{route('NotesController.index')}}">Notas<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="{{route('OrganizationsContactController.create', {id: organization.id})}}">Contacto<i
+                class="fa fa-caret-down" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+      </nav><!-- .main-menu -->
+      <div class="search-icon">
+        <a href="#" class="ion-ios-search-strong"></a>
+        <div class="form-search"></div>
+        <form action="#" method="POST" id="searchForm">
+          <input type="text" value="" name="search" placeholder="Search..." />
+          <button type="submit" value=""><span class="ion-ios-search-strong"></span></button>
+        </form>
+      </div>
+
+      <div class="login login-button">
+        <a href="/users/login" class="btn-primary">Login</a>
+      </div><!-- .login -->
+    </div>
+    <!--. right-header -->
+  </div><!-- .container -->
+</header><!-- .site-header -->
+
+@else
+<header id="header" class="site-header">
+  <div class="container">
+    <div class="site-brand">
+      <a href="/"><img src="/images/manosLogo.png" alt=""></a>
+    </div><!-- .site-brand -->
+    <div class="right-header">
+      <nav class="main-menu">
+        <button class="c-hamburger c-hamburger--htx"><span></span></button>
+        <ul>
+          <li>
+            <a href="{{ route('HomeController.index')}}">Inicio<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="{{ route('CampaignsController.index')}}">Campañas<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="{{ route('OrganizationController.index')}}">Organizaciones<i class="fa fa-caret-down"
+                aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="/donate">Donar<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <a href="/notes">Notas<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            <ul class="sub-menu">
+              <li><a href="/">Blog Grid</a></li>
+              <li><a href="/">Blog List</a></li>
+              <li><a href="/">Blog Grid Sidebar</a></li>
+              <li><a href="/">Blog Details</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav><!-- .main-menu -->
+      <div class="search-icon">
+        <a href="#" class="ion-ios-search-strong"></a>
+        <div class="form-search"></div>
+        <form action="#" method="POST" id="searchForm">
+          <input type="text" value="" name="search" placeholder="Search..." />
+          <button type="submit" value=""><span class="ion-ios-search-strong"></span></button>
+        </form>
+      </div>
+
+      <div class="login login-button">
+        <a href="/users/login" class="btn-primary">Login</a>
+      </div><!-- .login -->
+    </div>
+    <!--. right-header -->
+  </div><!-- .container -->
+</header><!-- .site-header -->
+@endif

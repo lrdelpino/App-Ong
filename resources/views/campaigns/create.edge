@@ -1,0 +1,46 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+
+@section('main')
+<section>
+  <div class="container">
+    <div class="main-content">
+      <div class="">
+        <h2>Crear Campaña</h2>
+        <form action="{{ route('Admin/CampaignsController.store')}}" method="POST" class="clearfix"
+          enctype="multipart/form-data">
+          {{ csrfField() }}
+          <div class="field">
+            <input type="text" value="" name="title" placeholder="Nombre de la campaña" />
+          </div>
+          <div class="field">
+            <textarea name="description" placeholder="Descripcion" cols="130" rows="10"></textarea>
+          </div>
+          <div class="field">
+            <input type="date" value="" name="expires_at" placeholder="Fecha de expiracion" />
+          </div>
+          <div class="field">
+            <input type="file" name="image_url" />
+          </div>
+          <div class="field">
+            <select name="organization_id">
+              @each(organization in organizations)
+              <option value="{{organization.id}}">{{organization.name}} </option>
+              @endeach
+            </select>
+          </div>
+
+          <div class="inline clearfix">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="/admin/campaigns" type="submit" class="btn btn-danger">Cancelar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+@endsection

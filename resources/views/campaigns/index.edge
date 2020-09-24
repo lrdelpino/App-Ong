@@ -1,0 +1,70 @@
+@layout('layouts.website')
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<div class="campaigns">
+  <div class="container">
+    <div class="campaign-content">
+      <div class="row">
+        @each(campaign in campaigns.data)
+        <div class="col-lg-4 col-sm-6 col-6">
+          <div class="campaign-item">
+            <a class="overlay" href="{{ route('CampaignsController.show', {id: campaign.id}) }}">
+              <img src="{{ campaign.image_url }}" alt="">
+              <span class="ion-ios-search-strong"></span>
+            </a>
+            <div class="campaign-box">
+              <h3><a href="/">{{ campaign.title }}</a></h3>
+              <div class="campaign-description">{{ campaign.description }}</div>
+              <div class="process">
+                <div class="raised"><span></span></div>
+                <div class="process-info">
+                  <div class="process-time">
+                    <span>
+                      @if(campaign.expires_at)
+                      Finaliza el dia {{ campaign.expires_at }}
+                      @endif
+
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endeach
+      </div>
+    </div>
+
+
+    <nav aria-label="navigation">
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a class="page-link" href="{{ request.url() }}" tabindex="-1">
+            Inicio
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{{ campaigns.page == 1 ? '#' : '?page=' + (campaigns.page - 1) }}" tabindex="-1">
+            Anterior
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link"
+            href="{{ campaigns.lastPage == campaigns.page ? '#' : '?page=' + (campaigns.page + 1) }}">
+            Siguiente
+          </a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="{{ request.url() + '?page=' + campaigns.lastPage }}" tabindex="-1">
+            Fin
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</div><!-- .latest -->
+@endsection

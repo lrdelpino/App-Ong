@@ -1,0 +1,43 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+@section('main')
+
+<div class="faq-content">
+  <div class="container">
+    <div class="faq-section">
+      <div class="border-title">
+        <h2 class="title left-title">Preguntas Frecuentes</h2>
+        <div class="description left-description">
+          Encontrá todas la ayuda acerca nuestra plataforma.
+        </div>
+      </div>
+      <ul class="list-faq">
+        @each(faq in faqs)
+        <li>
+          <span class="ion-plus"></span><a href="{{route('Admin/FaqController.edit',{id:faq.id})}}">{{ faq.title }}</a>
+          <div class="faq-desc">
+            <p>{{faq.description}}</p>
+            <form class="d-inline-block" action="{{route('Admin/FaqController.edit',{id:faq.id})}}">
+              <button class="btn text-primary btn-sm">
+                <i class="fa fa-pencil"></i>
+              </button>
+            </form>
+
+            <form class="d-inline-block" method="POST" action="/admin/faqs/{{faq.id}}?_method=delete">
+              {{ csrfField() }}
+              <input type="hidden" name="method" value="DELETE">
+              <button type="submit" class="btn text-danger btn-sm">
+                <i class="fa fa-trash"></i>
+              </button>
+            </form>
+          </div>
+        </li>
+        @endeach
+      </ul>
+    </div><!-- .faq-section -->
+  </div>
+</div>
+@endsection

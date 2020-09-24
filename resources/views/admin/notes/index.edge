@@ -1,0 +1,73 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 main-content">
+
+      @each(note in notes.data)
+      <article class="post">
+        <a class="overlay" href="{{route('Admin/NoteController.show',{id:note.id})}}">
+          <img src="../../demos/notes1.jpg" alt="">
+          <span class="ion-ios-search-strong"></span>
+        </a>
+        <div class="post-info">
+        <h3 class="post-title"><a href="{{route('Admin/NoteController.show',{id:note.id})}}">{{ note.title }}</a></h3>
+          <ul class="post-meta">
+            <li><i class="fa fa-calendar-check-o" aria-hidden="true"></i><a href="#">17 June 2017</a></li>
+          <li><i class="fa fa-user-o" aria-hidden="true"></i><span>by</span><a href="#">Manos de la cava</a></li>
+          </ul>
+          <div class="post-desc">
+            <p>{{ note.description }}</p>
+          </div>
+        </div>
+
+        <form class="d-inline-block" action="{{route('Admin/NoteController.show',{id:note.id})}}">
+          <button class="btn text-info btn-sm">
+              <i class="fa fa-id-card"></i>
+          </button>
+      </form>
+
+      <form class="d-inline-block" action="{{route('Admin/NoteController.edit',{id:note.id})}}">
+          <button class="btn text-primary btn-sm">
+              <i class="fa fa-pencil"></i>
+          </button>
+      </form>
+
+      <form class="d-inline-block" method="POST" action="/admin/notes/{{note.id}}?_method=delete">
+          {{ csrfField() }}
+          <input type="hidden" name="method" value="DELETE">
+          <button type="submit" class="btn text-danger btn-sm">
+              <i class="fa fa-trash"></i>
+          </button>
+      </form>
+      </article>
+
+      @endeach
+
+      <div class="page-navigation">
+        <span class="page-numbers current">1</span>
+        <a href="#" class="page-numbers">2</a>
+        <a href="#" class="page-numbers">3</a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 sidebar">
+      <aside class="widget widget-recent">
+        <h3 class="widget-title">Últimos Post</h3>
+        <ul>
+          @each(note in notes.data)
+          <li><a href="#">{{ note.title }}</a></li>
+          @endeach
+        </ul>
+      </aside><!-- .widget-search -->
+    </div>
+  </div>
+</div><!-- .container -->
+
+@endsection

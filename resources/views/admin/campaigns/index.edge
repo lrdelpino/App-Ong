@@ -1,0 +1,53 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+
+@section('main')
+<div class="account-content backed-campaigns account-table">
+  <h3 class="account-title">Campa&ntilde;as</h3>
+  <div class="account-main">
+    <table>
+      <thead>
+        <tr>
+          <th>Titulo</th>
+          <th>Expiración</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        @each(campaign in campaigns)
+        <tr>
+          <td>{{ campaign.title }}</td>
+          <td>{{ campaign.expires_at }}</td>
+          <td>
+            <form class="d-inline-block" action="/admin/campaigns/{{campaign.id}}">
+              <button class="btn text-info btn-sm">
+                <i class="fa fa-id-card"></i>
+              </button>
+            </form>
+
+            <form class="d-inline-block" action="/admin/campaigns/{{campaign.id}}/edit">
+              <button class="btn text-primary btn-sm">
+                <i class="fa fa-pencil"></i>
+              </button>
+            </form>
+
+            <form class="d-inline-block" method="POST" action="/admin/campaigns/{{campaign.id}}?_method=delete">
+              {{ csrfField() }}
+              <input type="hidden" name="method" value="DELETE">
+              <button type="submit" class="btn text-danger btn-sm">
+                <i class="fa fa-trash"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+        @endeach
+      </tbody>
+    </table>
+  </div>
+</div>
+@endsection

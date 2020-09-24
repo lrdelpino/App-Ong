@@ -1,0 +1,143 @@
+@layout('layouts.website')
+
+@section('banner')
+<div class="page-title background-cart">
+  <div class="container">
+    <h1>Donaciones</h1>
+    <div class="breadcrumbs">
+      <ul>
+        <li>Ayudanos a llegar a más personas</li>
+      </ul>
+    </div><!-- .breadcrumbs -->
+  </div>
+</div>
+@endsection
+
+@section('main')
+<div class="container">
+  <div class="main-content">
+    <div class="billing-detail">
+      <form action="donation" method="POST" id="billingForm" class="clearfix">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>Informacion de Pago</h2>
+            <div class="field">
+              <label for="country">Pais:*</label>
+              <div class="field-select">
+                <select name="s" id="country">
+                  <option value="ARG">Argentina</option>
+                </select>
+              </div>
+            </div>
+            <div class="field clearfix">
+              <div class="align-left">
+                <label for="fname">Nombre:*</label>
+                <input type="text" value="" id="fname" name="first_name" placeholder="Nombre" />
+              </div>
+              <div class="align-right">
+                <label for="lname">Apellido:*</label>
+                <input type="text" value="" id="lname" name="last_name" placeholder="Apellido" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="company">DNI</label>
+              <input type="text" value="" id="company" name="identification_numer" placeholder="Nro de Documento" />
+            </div>
+            <div class="field">
+              <label for="address">Calle y Numero:*</label>
+              <input type="text" value="" id="address" name="adress" placeholder="Address" />
+            </div>
+            <div class="field">
+              <label for="city">Ciudad:*</label>
+              <input type="text" value="" id="city" name="city" placeholder="Town/City" />
+            </div>
+            <div class="field clearfix">
+              <div class="align-left">
+                <label for="state">Provincia:*</label>
+                <input type="text" value="" id="state" name="state" placeholder="State" />
+              </div>
+              <div class="align-right">
+                <label for="zipcode">Codigo Postal:*</label>
+                <input type="text" value="" id="zipcode" name="zipcode" placeholder="Codigo Postal" />
+              </div>
+            </div>
+            <div class="create-account">
+              <input type="checkbox" id="f-option" name="account" value="">
+              <label for="f-option">Create an acount?</label>
+              <div class="checkbox"></div>
+              <div class="form-create-account">
+                <h2>Registrarme como donante</h2>
+                <div class="field">
+                  <input type="email" value="" name="email" placeholder="Email" />
+                </div>
+                <div class="field">
+                  <input type="text" value="" name="password" placeholder="Password" />
+                </div>
+              </div>
+            </div>
+            <div class="different-address">
+              <label for="d-option">Shipping to a different address?</label>
+              <input type="checkbox" id="d-option" name="differentAdress" value="">
+            </div>
+            <div class="order-notes">
+              <label for="order">Mensaje</label>
+              <textarea rows="8" id="order" name="additional_info" placeholder="Mensaje"></textarea>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="cart-totals">
+              <h2>Your Order</h2>
+              <ul>
+                <li>
+                  <p>Cart Subtotal</p>
+                  <p class="price">$105</p>
+                </li>
+                <li>
+                  <p>Shipping Fee</p>
+                  <p>Free Shipping</p>
+                </li>
+                <li>
+                  <p>Order Total</p>
+                  <p class="price">$105</p>
+                </li>
+              </ul>
+            </div>
+            <div class="payment">
+              <h2>Forma de Pago</h2>
+              <ul>
+                <li>
+                  <input type="radio" id="p-option" name="selector">
+                  <label for="p-option">Transferencia Bancaria</label>
+                  <div class="payment-check"></div>
+                  <div class="payment-desc">
+                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment
+                      reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                  </div>
+                </li>
+                <li>
+                  <input type="radio" id="p1-option" name="selector">
+                  <label for="p1-option">Mercado Pago</label>
+                  <div class="payment-check"></div>
+                  <div class="payment-desc">
+                    <p>Make your payment directly into our bank account. Please use your Order ID as the payment
+                      reference. Your order won’t be shipped until the funds have cleared in our account.</p>
+                  </div>
+                </li>
+                <li>
+                  <input type="radio" id="p2-option" name="selector">
+                  <label for="p2-option">Donacion fisica (no monetaria)</label>
+                  <div class="payment-check"></div>
+                  <div class="payment-desc">
+                    <p>Podes acercarte hasta uno de nuestros puntos de recepcion para traer tus donaciones.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <button type="submit" value="Place Order" class="btn-primary">Continuar</button>
+          </div>
+        </div>
+      </form>
+    </div><!-- billing-detail -->
+  </div><!-- .main-content -->
+</div>
+@endsection

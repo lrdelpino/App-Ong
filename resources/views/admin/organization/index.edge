@@ -1,0 +1,76 @@
+@layout('layouts.admin')
+
+@section('main')
+<div class="shop-grid">
+  <div id="wrapper">
+    <main id="main" class="site-main">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 main-content">
+            <div class="shop-grid-fillter clearfix">
+              <p>Showing 1–12 of 34 results</p>
+              <div class="field-select">
+                <select name="s">
+                  <option value="">Default sorting</option>
+                  <option value="">Name</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid-product">
+              @each(organization in organizations.data)
+              <div class="product">
+                <a href="{{ route('Admin/OrganizationController.show', { id:organization.id })}}"><img
+                    src="images/placeholder/270x180.png" alt=""></a>
+                <div class="product-info">
+                  <h3 class="product-title"><a
+                      href="{{ route('Admin/OrganizationController.show', { id: organization.id })}}">{{organization.name}}</a>
+                  </h3>
+                  <p class="product-price">{{organization.description}}</p>
+                </div>
+              </div>
+              @endeach
+            </div>
+          </div>
+        </div>
+      </div><!-- .container -->
+      <nav aria-label="navigation" style="margin:auto;">
+        <ul class="pagination justify-content-center">
+          @if(organizations.page != 1)
+          <li class="page-item">
+            <a class="page-link" href="{{ request.url() }}" tabindex="-1">
+              Inicio
+            </a>
+          </li>
+          @endif
+
+          @if(organizations.page > 1)
+          <li class="page-item">
+            <a class="page-link" href="{{ organizations.page == 1 ? '#' : '?page=' + (organizations.page - 1) }}"
+              tabindex="-1">
+              Anterior
+            </a>
+          </li>
+          @endif
+
+          @if(organizations.page < organizations.lastPage)
+          <li class="page-item">
+            <a class="page-link"
+              href="{{ organizations.lastPage == organizations.page ? '#' : '?page=' + (organizations.page + 1) }}">
+              Siguiente
+            </a>
+          </li>
+            @endif
+
+            @if(organizations.page != organizations.lastPage)
+            <li class="page-item">
+              <a class="page-link" href="{{ request.url() + '?page=' + organizations.lastPage }}" tabindex="-1">
+                Fin
+              </a>
+            </li>
+            @endif
+        </ul>
+      </nav>
+    </main><!-- .site-main -->
+  </div><!-- #wrapper -->
+</div>
+@endsection

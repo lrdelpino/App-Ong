@@ -1,0 +1,104 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.mainBanner')
+@endsection
+
+@section('main')
+
+<div class="popular campaign">
+  <div class="container">
+    <h2 class="title">Campañas</h2>
+    <div class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
+    <div class="campaign-content">
+      <div class="row">
+        @each(campaign in campaigns )
+        <div class="col-lg-4 col-sm-6">
+          <div class="campaign-item">
+            <a class="overlay" href="{{route('CampaignsController.show',{id: campaign.id })}}">
+              <img src="demos/demo1.jpg" alt="">
+              <span class="ion-ios-search-strong"></span>
+            </a>
+            <div class="campaign-box">
+              <a href="#" class="category">Design &amp; Art</a>
+              <h3><a href="{{route('CampaignsController.show',{id: campaign.id })}}">{{ campaign.title }}</a></h3>
+              <div class="campaign-description">{{ campaign.description }}</div>
+              <div class="campaign-author"><a class="author-icon" href="#"><img src="images/placeholder/35x35.png"
+                    alt=""></a> <a class="author-name" href="#">{{ campaign.organization.name }}</a></div>
+              <div class="process">
+                <div class="raised"><span></span></div>
+                <div class="process-info">
+                  <div class="process-pledged"><span>$610</span>pledged</div>
+                  <div class="process-funded"><span>73%</span>funded</div>
+                  <div class="process-time"><span>25</span>days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endeach
+      </div>
+    </div><!-- .section-content -->
+  </div>
+</div><!-- .popular -->
+<div class="explore">
+  <div class="container">
+    <h2 class="title">Organizaciones</h2>
+    <div class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</div>
+    <div class="explore-content">
+      {{--  Inner this ROW must add images  --}}
+      <div class="row">
+        @each(organization in organizations )
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+          <div class="explore-item">
+            <a class="explore-overlay" href="#">
+              <img src="{{ organization.image }}" alt="">
+              <span>{{ organization.name }}</span>
+            </a>
+          </div>
+        </div>
+        @endeach
+      </div>
+    </div>
+  </div>
+</div><!-- .explore -->
+<div class="latest campaign">
+  <div class="container">
+    <h2 class="title">Organizations</h2>
+    <div class="description">Colaborate with us</div>
+    <div class="campaign-content">
+      <div class="row">
+        @each(campaign in campaigns )
+        <div class="col-lg-4 col-sm-6">
+          <div class="campaign-item">
+            <a class="overlay" href="{{route('CampaignsController.show',{id: campaign.id })}}">
+              <img src="demos/demo1.jpg" alt="">
+              <span class="ion-ios-search-strong"></span>
+            </a>
+            <div class="campaign-box">
+              {{--  <a href="#" class="category">Crafts</a>  --}}
+              <h3><a href="{{route('CampaignsController.show',{id: campaign.id })}}">{{ campaign.title}}</a></h3>
+              <div class="campaign-description">{{ campaign.description}}</div>
+              <div class="campaign-author"><a class="author-icon" href="#"><img src="images/placeholder/35x35.png"
+                    alt=""></a>by <a class="author-name" href="#">{{ campaign.organization.name }}</a></div>
+              <div class="process">
+                <div class="raised"><span></span></div>
+                <div class="process-info">
+                  <div class="process-pledged"><span>$630</span>pledged</div>
+                  <div class="process-funded"><span>26%</span>funded</div>
+                  <div class="process-time"><span>2</span>days ago</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        @endeach
+      </div>
+    </div>
+    <div class="latest-button"><a href="{{route('CampaignsController.index')}}" class="btn-primary">View all
+        Campaigns</a></div>
+  </div>
+</div><!-- .latest -->
+
+
+@endsection

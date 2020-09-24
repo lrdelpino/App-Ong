@@ -1,0 +1,77 @@
+@layout('layouts.admin')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<div class="col-lg-9">
+  <div class="account-content profile">
+    <h3 class="account-title">My Profiles</h3>
+    <div class="account-main">
+      <div class="author clearfix">
+        <a class="author-avatar" href="#">
+          <img src="https://i.pravatar.cc/120?img={{ user.id }}" alt="avatar">
+          {{--  <img src="/images/placeholder/120x120.png" alt="">  --}}
+        </a>
+        <div class="author-content">
+          <div class="author-title">
+            <h3><a href="#">{{ user.last_name }} {{ user.first_name }}</a></h3>
+          </div>
+          <div class="author-info">
+            <p>{{ user.email }}</p>
+            <p></p>
+          </div>
+        </div>
+      </div>
+      <div class="profile-box">
+        <h3>Profile Infomations</h3>
+        <ul>
+          <li>
+            <strong>Nombre:</strong>
+            <div class="profile-text">
+              <p>{{ user.first_name }}</p>
+            </div>
+          </li>
+          <li>
+            <strong>Apellido:</strong>
+            <div class="profile-text">
+              <p id="last_name">{{ user.last_name }}</p>
+            </div>
+          </li>
+          <li>
+            <strong>Username:</strong>
+            <div class="profile-text">
+              <p id="username">{{ user.username }}</p>
+            </div>
+          </li>
+          <li>
+            <strong>Email:</strong>
+            <div class="profile-text">
+              <p id="email">{{ user.email }}</p>
+            </div>
+          </li>
+          <li>
+            <strong>Provider:</strong>
+            <div class="profile-text">
+              <p id="provider">{{ user.provider }}</p>
+            </div>
+          </li>
+          <li>
+            <strong>Fecha de registro:</strong>
+            <div class="profile-text">
+              <p id="fecha-registro">{{ user.created_at }}</p>
+            </div>
+          </li>
+          <li>
+            <strong>Fecha de ultima conexion:</strong>
+            <div class="profile-text">
+              <p id="fecha-last-login">{{ user.last_login || '' }}</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection

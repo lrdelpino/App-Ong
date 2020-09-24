@@ -1,0 +1,37 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<div class="container">
+  <div class="main-content">
+    <div class="form-login form-register">
+      <h2>Registro de cuenta</h2>
+      <form action="{{ route("UsersController.store") }}" method="POST" id="registerForm" class="clearfix">
+        {{ csrfField() }}
+        <div class="field">
+          <input type="text" value="" name="first_name" placeholder="First Name" />
+        </div>
+        <div class="field">
+          <input type="text" value="" name="last_name" placeholder="Last Name" />
+        </div>
+        <div class="field">
+          <input type="text" value="" name="username" placeholder="Username" />
+        </div>
+        <div class="field">
+          <input type="email" value="" name="email" placeholder="E-mail Address" />
+        </div>
+        <div class="field">
+          <input type="password" value="" name="password" placeholder="Password" />
+        </div>
+        <div class="inline clearfix">
+          <button type="submit" value="Send Messager" class="btn-primary">Registrar Cuenta</button>
+          <p>Not a member yet? <a href="/users/login">Login Now</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+@endsection

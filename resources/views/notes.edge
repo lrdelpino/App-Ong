@@ -1,0 +1,52 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 main-content">
+
+      @each(note in notes)
+      <article class="post">
+        <a class="overlay" href="blog_details">
+          <img src="images/placeholder/770x460.png" alt="">
+          <span class="ion-ios-search-strong"></span>
+        </a>
+        <div class="post-info">
+          <h3 class="post-title"><a href="blog_details.html">{{ note.title }}</a></h3>
+          <ul class="post-meta">
+            <li><i class="fa fa-calendar-check-o" aria-hidden="true"></i><a href="#">17 June 2017</a></li>
+            <li><i class="fa fa-user-o" aria-hidden="true"></i><span>by</span><a href="#">Andrew Noah</a></li>
+          </ul>
+          <div class="post-desc">
+            <p>{{ note.description }}</p>
+          </div>
+        </div>
+      </article>
+      @endeach
+
+      <div class="page-navigation">
+        <span class="page-numbers current">1</span>
+        <a href="#" class="page-numbers">2</a>
+        <a href="#" class="page-numbers">3</a>
+      </div>
+    </div>
+
+    <div class="col-lg-4 sidebar">
+      <aside class="widget widget-recent">
+        <h3 class="widget-title">Últimos Post</h3>
+        <ul>
+          @each(note in notes)
+          <li><a href="#">{{ note.title }}</a></li>
+          @endeach
+        </ul>
+      </aside><!-- .widget-search -->
+    </div>
+  </div>
+</div><!-- .container -->
+
+@endsection

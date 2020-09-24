@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Alkemy </title>
+  {{ style( 'https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css"' )  }}
+  {{ style( 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous' ) }}
+  {{ style( 'https://fonts.googleapis.com/css?family=Rubik:400,500,700&amp;subset=latin-ext' ) }}
+  {{ style( 'libs/font-awesome/css/font-awesome.min.css' ) }}
+  {{ style ('style') }}
+</head>
+
+<body>
+  <section>
+    @component('components/header')
+    @endcomponent
+  </section>
+
+  <section>
+    @component('components/user-profile')
+    @endcomponent
+  </section>
+
+
+  <section>
+    @component('components/footer')
+    @endcomponent
+  </section>
+
+  <script src=" https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js">
+  </script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script>
+    const firebaseConfig = {{{ toJSON(firebaseCredentials) }}}
+  </script>
+  <script src="main.js"></script>
+</body>
+
+</html>

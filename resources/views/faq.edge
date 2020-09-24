@@ -1,0 +1,36 @@
+@layout('layouts.website')
+
+@section('banner')
+@include('partials.secondaryBanner')
+@endsection
+
+@section('main')
+<div class="faq-content">
+  <div class="container">
+    <div class="faq-section">
+      <div class="border-title">
+        <h2 class="title left-title">Preguntas Frecuentes</h2>
+        <div class="description left-description">
+          Encontrá todas la ayuda acerca nuestra plataforma.
+        </div>
+      </div>
+      <ul class="list-faq">
+        @each(faq in faqs)
+        <li>
+          <span class="ion-plus"></span><a href="#">How do I change my mailing preferences?</a>
+          <div class="faq-desc">
+            <p>When logged in to your IdeaPress account, click on your name in the top right of the screen from where a
+              drop down menu will appear. Select ‘Notifications’.</p>
+            <p>In here you can choose to opt in/out of the weekly IdeaPress newsletter. You can also set up notification
+              emails to let you know when a certain type of project or a project in a certain location has been
+              published.</p>
+            <p>In this tab you can also follow/unfollow projects or Hives that you’ve backed or liked by simply
+              checking/unchecking the tick box.</p>
+          </div>
+        </li>
+        @endeach
+      </ul>
+    </div><!-- .faq-section -->
+  </div>
+</div>
+@endsection
