@@ -1,7 +1,3 @@
-![Alkemy Logo](https://alkemy.org/assets/images/logo-header.png)
-
-# Proyecto Alkemy Labs
-
 Proyecto de desarrollo utilizando AdonisJs
 
 ## Requerimientos previos
